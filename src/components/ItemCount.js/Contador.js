@@ -40,13 +40,14 @@ const restar = () => {
     <button onClick={sumar} className="btn btn-primary" disabled={counter === stock}>+</button>
     <section>
 
-
+    
 
     <Button onClick={() => {
           onAdd(counter);
           console.log("Agregaste productos")
         }}
         disabled={counter === 0 ? true : null} className='agregar' 
+        
         
         variant="danger">Agregar</Button>
 

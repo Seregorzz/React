@@ -1,9 +1,12 @@
-.tutores-container {
-    max-width: 900px;
-    margin: 40px auto
-}
 
-.my-container {
-    max-width: 800px;
-    margin: 0 auto;
+
+main{
+
+    image-rendering: optimizeQuality;
+    background-image: url(../public/assets/stranger.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    
 }

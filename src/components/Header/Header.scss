@@ -1,5 +1,6 @@
 
 .bg-header {
+    border-radius: 10px;
     .carro{
         width: 50px;
         height: 50px;
@@ -24,9 +25,11 @@
         margin-top: 5px;
         margin-left: 100px;
         text-decoration: none;
+        
     }
     
-    background-color: rgb(23, 23, 22);
+    background-color: rgba(23, 23, 22, 0.363);
+    
     .header-container {
         max-width: 1100px;
         margin: 0 auto;
@@ -37,11 +40,13 @@
         align-items: center;
         text-decoration: none;
         
+        
 
         .header-title {
             font-size: 30px;
             font-weight: 700;
             text-decoration: none;
+            
         }
         
         .header-navbar {
@@ -50,12 +55,16 @@
             justify-content: space-around;
             align-items: center;
             text-decoration: none;
+            
+            
         
             .header-navlink {
                 font-size: 18px;
                 font-weight: 700;
                 color: rgb(0, 255, 68);
                 text-decoration: none;
+                border-radius: 10px;
+                
             }
         }
     }

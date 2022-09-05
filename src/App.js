@@ -10,8 +10,9 @@ const App = () => {
 
   return (
 
-      <BrowserRouter>
-
+     
+      <BrowserRouter >
+          <main>
           <Header/>
 
           <Routes>
@@ -19,15 +20,16 @@ const App = () => {
             <Route path='/productos/:categoryId' element={<ItemListContainer/>} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
 
-            {/* <Route path="/nosotros" element={<Nosotros/>}/>
-            <Route path="/contacto" element={<Contacto/>}/> */}
-            {/* <Route path='*' element={ <Error404/>}/> */}
+            
             <Route path='*' element={ <Navigate to="/"/>} />
           </Routes>
 
+          </main>
 
-          {/* <Footer/> */}
+          
+          
       </BrowserRouter>
+      
 
   );
 }
@@ -36,15 +38,3 @@ export default App;
 
 
 
-// ejemplo dos ROutes
-/* <Routes>
-  <Route path='/checkout' element={<HeaderCheckout/>}/>
-  <Route path='*' element={<Header/>}/>
-</Routes>
-
-<Routes>
-  <Route path='/' element={ <ItemListContainer/> }/>
-  <Route path="/nosotros" element={<Nosotros/>}/>
-  <Route path="/contacto" element={<Contacto/>}/>
-  <Route path='*' element={ <Navigate to="/"/>} />
-</Routes> */
