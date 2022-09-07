@@ -28,7 +28,7 @@ const ItemDetail = ({item}) => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Vorhees</h3>
+          
           <p></p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -40,7 +40,7 @@ const ItemDetail = ({item}) => {
         />
 
         <Carousel.Caption>
-          <h3>Friday</h3>
+          
           <p></p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -52,7 +52,7 @@ const ItemDetail = ({item}) => {
         />
 
         <Carousel.Caption>
-          <h3>13</h3>
+          
           <p>
             
           </p>
