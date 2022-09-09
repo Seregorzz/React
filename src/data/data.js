@@ -19,7 +19,8 @@ export const stock = [
         amazon:'https://www.serfadu.com/wp-content/uploads/2020/10/amazon.png',
         img1:'https://4.bp.blogspot.com/-ec_gDbJckts/WX2lLSzxg1I/AAAAAAAANtg/Us9GLQQ0SK02bSWY8svewhxIKCssw950ACKgBGAs/s1600/viernes_13_1980_muerte_de_annie.JPG',
         img2:'https://gcdn.lanetaneta.com/wp-content/uploads/2022/05/La-precuela-de-Pamela-Voorhees-de-Friday-the-13th-podria.jpg',
-        img3:'https://serueda.files.wordpress.com/2013/03/friday-the-13th-part-1-1980-29.png'
+        img3:'https://serueda.files.wordpress.com/2013/03/friday-the-13th-part-1-1980-29.png',
+        
     },
     {
         id: 2,
@@ -114,4 +115,6 @@ export const stock = [
         img2:'https://s2.dmcdn.net/v/B_NQn1MHbPmSUhYD8/x1080',
         img3:'https://lacovacha.mx/wp-content/uploads/2018/09/0-ChildsPlay-Chuky-0.jpg'
     },
+    
+
 ]

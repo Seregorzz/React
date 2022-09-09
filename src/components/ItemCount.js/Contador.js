@@ -40,7 +40,7 @@ const restar = () => {
     <button onClick={sumar} className="btn btn-primary" disabled={counter === stock}>+</button>
     <section>
 
-    
+    <br></br>
 
     <Button onClick={() => {
           onAdd(counter);

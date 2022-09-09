@@ -30,6 +30,8 @@ const Item = ( {producto} ) => {
             <p>Precio: {producto.precio}</p>
             <small>Stock disponible: {producto.stock}</small>
             <p>{producto.desc}</p>
+            <p>{producto.genero}</p>
+            <br></br>
             <Contador onAdd={onAdd} initial={1} stock={producto.stock}/>
             
             <Link to={`/item/${producto.id}`} className="btn btn-primary my-2">Ver más</Link>

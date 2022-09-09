@@ -3,11 +3,24 @@ import './ItemDetail.scss'
 import Contador from '../ItemCount.js/Contador';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
+import { useState } from 'react';
+import Swal from 'sweetalert2'
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+
+
+
 
 
 const ItemDetail = ({item}) => {
+
+  const [add,setAdd] = useState(false)
+
     const onAdd = (counter) => {
-        alert(`Agregaste ${counter} productos`);
+
+      setAdd(!add)
+        
+        Swal.fire(`Agregaste ${counter} productos`)
         
         
       };
@@ -47,7 +60,7 @@ const ItemDetail = ({item}) => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={item.img3}
+          src  ={item.img3}
           alt=""
         />
 
@@ -64,8 +77,29 @@ const ItemDetail = ({item}) => {
       <Card.Img variant="top" src={item.amazon} />
       <h1>{item.precio}</h1>
       <Card.Body>
+        <div>
+          {
+            add ?
+            ""
+            :
 
-      <Contador className="non" onAdd={onAdd} initial={1} stock={item.stock}/>
+         <Contador className="non" onAdd={onAdd} initial={1} stock={item.stock}/>
+         
+          }
+        
+        </div>
+        <br></br>
+        <Link to="/Cart"   className="d-grid gap-2">
+      <Button variant="primary" size="lg">
+        Finalizar Compra
+      </Button>
+      
+        
+        </Link>
+      
+      
+ 
+      
         <Card.Title></Card.Title>
         <Card.Text>
           
