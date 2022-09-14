@@ -3,10 +3,12 @@ import './ItemDetail.scss'
 import Contador from '../ItemCount.js/Contador';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
-import { useState } from 'react';
-import Swal from 'sweetalert2'
+import { useContext, useState } from 'react';
+
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Select from '../Select/Select';
+import { CartContext } from '../../Context/CartContext';
 
 
 
@@ -14,25 +16,46 @@ import { Link } from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
 
-  const [add,setAdd] = useState(false)
+  //////////
+  
+  
 
-    const onAdd = (counter) => {
+  
+        const[version,setVersion] = useState (item.options[0].value)
 
-      setAdd(!add)
+        const{cart,addToCart, isInCart}= useContext (CartContext)
+        console.log(cart)
+
+      //////////
+      const [cantidad,setCantidad] = useState(1)
+
+      const handleAgregar = () => {
+        const itemtoCart =  {
+
+          id: item.id,
+          precio: item.precio,
+          nombre:item.nombre,
+          img:item.img,
+          version,
+          cantidad
+
+        } 
+        console.log(isInCart(item.id))
+        addToCart( itemtoCart )
         
-        Swal.fire(`Agregaste ${counter} productos`)
-        
-        
-      };
-        
+      }
 
     return (
         <div>
+
+
+      
+
       
      <h3>{item.nombre}</h3>
 <div className="conta " >
             <img className='imagen' src={item.img} alt="bueno"/>
-            <p className='tit'> { item.sinopsis}
+            <div className='tit'> { item.sinopsis}
             <Carousel >
       <Carousel.Item>
         <img
@@ -40,9 +63,10 @@ const ItemDetail = ({item}) => {
           src={item.img1}
           alt="First slide"
         />
+        
         <Carousel.Caption>
           
-          <p></p>
+          
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -54,7 +78,7 @@ const ItemDetail = ({item}) => {
 
         <Carousel.Caption>
           
-          <p></p>
+          
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -65,54 +89,58 @@ const ItemDetail = ({item}) => {
         />
 
         <Carousel.Caption>
+
           
-          <p>
-            
-          </p>
+          
         </Carousel.Caption>
       </Carousel.Item>
-    </Carousel></p>
+    </Carousel></div>
               <div className='precio'>
               <Card style={{ width: '22rem' }}>
       <Card.Img variant="top" src={item.amazon} />
       <h1>{item.precio}</h1>
       <Card.Body>
-        <div>
-          {
-            add ?
-            ""
-            :
-
-         <Contador className="non" onAdd={onAdd} initial={1} stock={item.stock}/>
+      <Select options={item.options} onSelect={setVersion}/>
+      {
+          isInCart(item.id)
+          ? <Link to="/Cart"   className="d-grid gap-2">
+          <Button variant="primary" size="lg">
+            Finalizar Compra
+          </Button>
          
-          }
+            </Link>
+            : <Contador className="non" 
+             
+            max={item.stock}
+            counter={cantidad}
+            setCounter={setCantidad}
+            handleAgregar={handleAgregar}/>
+       }
         
-        </div>
+        
         <br></br>
-        <Link to="/Cart"   className="d-grid gap-2">
-      <Button variant="primary" size="lg">
-        Finalizar Compra
-      </Button>
-      
         
-        </Link>
       
-      
- 
-      
-        <Card.Title></Card.Title>
+        <Card.Title> </Card.Title>
         <Card.Text>
           
         </Card.Text>
         
       </Card.Body>
     </Card>
+
+   
               </div>
              
+
+             
+             
             
-            <div className='video'>{item.trailer}</div> 
         </div>
+         
         </div>
+       
+        
         
     )
 }

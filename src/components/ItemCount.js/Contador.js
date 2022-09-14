@@ -1,33 +1,35 @@
 import Button from 'react-bootstrap/Button';
-import { useState } from "react"
 
 
 
 
 
 
-const Contador = ({onAdd, initial, stock}) => {
+
+
+const Contador = ({onAdd,max,counter,setCounter,handleAgregar}) => {
    //let counter = 1
-   const [counter,setCounter] = useState(initial)
+   
 
    
    const sumar = () => {
 
-      setCounter(counter + 1);
-      
-    
-    console.log(counter)
+      if(counter < max){
+
+        setCounter(counter + 1)
+      }
     
    }
 const restar = () => {
 
     
-    if (counter > 0) {
+    if (counter > 1) {
 
         setCounter(counter - 1)
     }
-    console.log(counter)
+    
 }
+
 
     return(
    <div className="cuenta">
@@ -37,19 +39,12 @@ const restar = () => {
 
     <span className="mx-2">{counter}</span>
 
-    <button onClick={sumar} className="btn btn-primary" disabled={counter === stock}>+</button>
+    <button onClick={sumar} className="btn btn-primary" >+</button>
     <section>
 
     <br></br>
 
-    <Button onClick={() => {
-          onAdd(counter);
-          console.log("Agregaste productos")
-        }}
-        disabled={counter === 0 ? true : null} className='agregar' 
-        
-        
-        variant="danger">Agregar</Button>
+    <Button onClick={handleAgregar} >Agregar</Button>
 
         
     </section>

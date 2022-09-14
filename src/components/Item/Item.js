@@ -1,18 +1,14 @@
 import { Link } from 'react-router-dom'
 import './Item.scss'
 import Card from 'react-bootstrap/Card';
-import Contador from '../ItemCount.js/Contador';
+
 
 
 
 const Item = ( {producto} ) => {
 
     
-    const onAdd = (counter) => {
-        alert(`Agregaste ${counter} productos`);
-        
-        
-      };
+    
         
       
 
@@ -21,7 +17,6 @@ const Item = ( {producto} ) => {
        
         <div className='acomoda'>
 
-            
             <Card style={{ width: '21rem' }}>
       <Card.Img variant="top" src={producto.img} />
       <Card.Body >
@@ -32,7 +27,7 @@ const Item = ( {producto} ) => {
             <p>{producto.desc}</p>
             <p>{producto.genero}</p>
             <br></br>
-            <Contador onAdd={onAdd} initial={1} stock={producto.stock}/>
+            
             
             <Link to={`/item/${producto.id}`} className="btn btn-primary my-2">Ver más</Link>
         <Card.Title></Card.Title>

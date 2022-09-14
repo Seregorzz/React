@@ -8,7 +8,9 @@ import Cart from './components/Cart/Cart';
 import Slasher from './components/Categorias/Slasher/Slasher';
 import   Suspense  from './components/Categorias/Suspense/Suspense';
 import Thriller from './components/Categorias/Thriller/Thriller';
-;
+import {  CartProvider } from './Context/CartContext';
+
+
 
 
 
@@ -16,10 +18,17 @@ import Thriller from './components/Categorias/Thriller/Thriller';
 
 const App = () => {
 
+  
+
+     
   return (
 
      
-      <BrowserRouter >
+      <CartProvider>
+        
+        
+        <BrowserRouter >
+
           <main>
           <Header/>
 
@@ -33,9 +42,6 @@ const App = () => {
             <Route path='/Thriller' element={<Thriller/>}/>
             
             
-            
-
-            
             <Route path='*' element={ <Navigate to="/"/>} />
           </Routes>
           <div>
@@ -45,8 +51,16 @@ const App = () => {
           
           </main>
 
-         
+
       </BrowserRouter>
+
+
+      </CartProvider>
+      
+      
+
+     
+      
       
       
 

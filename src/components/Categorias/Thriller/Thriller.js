@@ -4,11 +4,24 @@
 
 import './Thriller.scss'
 const Thriller = () => {
+    const handleSubmit = (event) => {
 
+     event.preventDefault()
+     console.log(event)
+    }
 
     return(
 
         <div>
+
+            <form onSubmit={handleSubmit}>
+
+                <input type={'text'}
+                className="form-control my-2"/>
+                
+                <button className='btn btn-primary'>ENVIAR</button>
+                
+            </form>
 
         <h1>THRILLER</h1>
         <p className='slas'>Para comprender qué es un thriller es necesario empezar por el mundo de la literatura, donde surge  como un recurso para mantener a los lectores atentos. Autores como Agatha Christie, John Grisham y John Le Carré, entre muchos otros, han sido los que mejor han sabido usar todos sus recursos narrativos para generar intriga y evitar que los lectores dejen las novelas a la mitad. 

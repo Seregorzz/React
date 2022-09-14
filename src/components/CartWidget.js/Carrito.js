@@ -1,17 +1,25 @@
+
+
+import { useContext } from "react";
+import { BsFillCartFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
+import './Carrito.scss'
+
 const Carrito = () => {
+
+
+     const { cartQuantity} = useContext(CartContext)
 
 
     return(
 
-        <section>
+        <Link to="/cart">
+        
+        <BsFillCartFill className="compra"/>
+        <span>{cartQuantity()}</span>
 
-        <img className="carro" src='assets/carro.png' alt=''></img>
-
-
-        </section>
-
-
-
+        </Link>
     )
 }
 

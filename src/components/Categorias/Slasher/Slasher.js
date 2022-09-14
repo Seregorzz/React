@@ -1,13 +1,40 @@
+import { useEffect } from 'react'
 import './slasher.scss'
 
 const Slasher = () => {
 
+    const handleClick = (e) => {
+
+        console.log(e)
+    }
+   
+    useEffect (() => {
+        window.addEventListener ('click',handleClick)
+
+        return () => {
+
+            window.removeEventListener('click',handleClick)
+        }
+
+
+    },[])
+
+
+
+
+
+
+
 
     return(
+     
 
+        
         <div>
+        
+        
 
-        <h1>Slasher</h1>
+        <h1 onClick={handleClick}>Slasher</h1>
 
         <p className='sla'>Las películas slasher no son fáciles de definir. Sin embargo, poseen ciertas características comunes.2​El elemento principal es el asesino, que es guiado por el deseo de venganza hacia quienes le provocaron una tragedia o humillación. Estos generalmente son personas comunes y corrientes. Los villanos de estas películas realizan sus asesinatos de manera rápida, no buscan torturar a sus víctimas.3​ Las muertes son provocadas por varios tipos de armas, destacando elementos corto-punzantes como cuchillos, machetes, sierras eléctricas o hachas.4​ El asesino es, la mayoría de las veces, anónimo, debido a lo cual lleva su rostro cubierto o sufre algún tipo de desfiguración.5​ Otra de las características son las víctimas, generalmente adolescentes que se encuentran en lugares aislados de cualquier tipo de ayuda.6​
 
@@ -32,9 +59,6 @@ Con el pasar de los años, la definición de las películas slasher se hizo más
    </div>
 
         </div>
-
-       
-
 
 
     )
