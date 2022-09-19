@@ -35,7 +35,8 @@ const restar = () => {
    <div className="cuenta">
     
 
-    <button onClick={restar} className="btn btn-outline-primary" >-</button>
+    <button onClick={restar} className={counter === 0 ? "btn btn-outline-danger" : "btn btn-outline-primary" }
+    disabled={counter === 0} >-</button>
 
     <span className="mx-2">{counter}</span>
 
@@ -44,7 +45,7 @@ const restar = () => {
 
     <br></br>
 
-    <Button onClick={handleAgregar} >Agregar</Button>
+    <Button disabled={counter=== 0} onClick={handleAgregar} >Agregar</Button>
 
         
     </section>

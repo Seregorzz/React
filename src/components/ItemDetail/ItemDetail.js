@@ -27,7 +27,7 @@ const ItemDetail = ({item}) => {
         console.log(cart)
 
       //////////
-      const [cantidad,setCantidad] = useState(1)
+      const [cantidad,setCantidad] = useState(0)
 
       const handleAgregar = () => {
         const itemtoCart =  {

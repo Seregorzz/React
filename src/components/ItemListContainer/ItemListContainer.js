@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import { pedirDatos } from "../../helpers/pedirDatos"
 import ItemList from "../ItemList/ItemList"
-import { useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
+import Louder from "../Louder/Louder"
+
+
 
 
 const ItemListContainer = () => {
@@ -31,15 +34,20 @@ const ItemListContainer = () => {
             })
     }, [categoryId])
 
+    
 
-    return (
-        <div>
+    return ( 
+
+        <div >
             {
                 loading 
-                ? <h2>Cargando...</h2>
+                ? <Louder/>
                 : <ItemList productos={productos}/>
             }
         </div>
+        
+    
+
     )
 }
 
