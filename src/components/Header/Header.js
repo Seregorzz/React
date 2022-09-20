@@ -25,6 +25,9 @@ export const Header = () => {
                     <li className='ordena'><Link to='/Slasher' className="header-navlink">Slasher</Link></li>
                     <li className='ordena'><Link to='/Thriller' className="header-navlink">Thriller</Link></li>
                     <li className='ordena'><Link to='/Suspense' className="header-navlink">Suspense</Link></li>
+                    <li className='ordena'><Link to='/productos/remeras' className="header-navlink">Seccion Nueva</Link></li>
+                    <li className='ordena'><Link to='/productos/zapatillas' className="header-navlink">Old</Link></li>
+                    <li className='ordena'><Link to='/productos/gorros' className="header-navlink">80</Link></li>
                     
                     </ul>
                     
