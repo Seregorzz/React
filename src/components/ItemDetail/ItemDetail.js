@@ -4,10 +4,11 @@ import Contador from '../ItemCount.js/Contador';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import { useContext, useState } from 'react';
+import Select from '../Select/Select';
 
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import Select from '../Select/Select';
+
 import { CartContext } from '../../Context/CartContext';
 
 
@@ -20,11 +21,11 @@ const ItemDetail = ({item}) => {
   
   
 
-  
-        const[version,setVersion] = useState (item.options[0].value)
+  const[version,setVersion] = useState (item.options[0].value)
+        
 
-        const{cart,addToCart, isInCart}= useContext (CartContext)
-        console.log(cart)
+        const{addToCart, isInCart}= useContext (CartContext)
+        
 
       //////////
       const [cantidad,setCantidad] = useState(0)
@@ -37,6 +38,7 @@ const ItemDetail = ({item}) => {
           nombre:item.nombre,
           img:item.img,
           version,
+          
           cantidad
 
         } 

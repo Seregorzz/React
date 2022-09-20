@@ -14,8 +14,9 @@ const Cart = () => {
 
       return(
 
-        <div className="container my-5">
-           <h2>Tu carrito esta vacio</h2>
+        <div className="ses">
+           <h2 className="espa">Tu carrito esta vacio</h2>
+           
             <hr/>
             <Link to='/' className="btn btn-primary">Ir a comprar</Link>
 
