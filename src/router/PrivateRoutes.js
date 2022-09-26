@@ -7,6 +7,7 @@ import Slasher from '../components/Categorias/Slasher/Slasher';
 import   Suspense  from '../components/Categorias/Suspense/Suspense';
 import Thriller from '../components/Categorias/Thriller/Thriller';
 import { Routes,Route,Navigate } from "react-router-dom"
+import Checkout from '../components/Checkout/Checkout';
 
 
   const PrivateRoutes = () => {
@@ -20,6 +21,7 @@ import { Routes,Route,Navigate } from "react-router-dom"
             <Route path='/' element={ <ItemListContainer/> }/>
             <Route path='/productos/:categoryId' element={<ItemListContainer/>} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
+            <Route path='/Checkout' element={<Checkout/>}/>
             
             <Route path='/Cart' element={<Cart/>}/>
             <Route path='/Slasher' element={<Slasher/>}/>
