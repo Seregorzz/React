@@ -3,17 +3,18 @@
 
 
 import './Thriller.scss'
+import shining from '../Thriller/Shining.jpg'
 const Thriller = () => {
     
 
     return(
 
-        <div>
+        <div className='th'>
 
            
 
-        <h1 className='ded'>THRILLER</h1>
-        <p className='slas'>Para comprender qué es un thriller es necesario empezar por el mundo de la literatura, donde surge  como un recurso para mantener a los lectores atentos. Autores como Agatha Christie, John Grisham y John Le Carré, entre muchos otros, han sido los que mejor han sabido usar todos sus recursos narrativos para generar intriga y evitar que los lectores dejen las novelas a la mitad. 
+        
+        <p >Para comprender qué es un thriller es necesario empezar por el mundo de la literatura, donde surge  como un recurso para mantener a los lectores atentos. Autores como Agatha Christie, John Grisham y John Le Carré, entre muchos otros, han sido los que mejor han sabido usar todos sus recursos narrativos para generar intriga y evitar que los lectores dejen las novelas a la mitad. 
 
 Sin embargo, gracias a las posibilidades del mundo del celuloide y a la breve duración de la mayor parte de las producciones, el thriller encuentra en la gran pantalla todo un aliado. Es decir, un escenario en el que hacer evidente su atmósfera oscura, en el que sobresaltar al espectador con inesperados giros de guion y en el que mantener la atención a través de persecuciones, misterios que se revelan y cazas al asesino en las que nada es lo que parece. 
 <br></br>
@@ -31,7 +32,7 @@ Esta es la razón por la que, en ocasiones, una trama que aparentemente pueda pa
 </p>
 
 <div>
-    <img alt=''></img>
+<img  className='shining' src={shining} alt=''></img>
 </div>
         </div>
    

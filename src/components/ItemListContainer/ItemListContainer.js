@@ -15,7 +15,7 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
-    console.log(categoryId)
+    
 
     useEffect(() => {
         setLoading(true)
@@ -31,7 +31,7 @@ const ItemListContainer = () => {
 
             const productosDB = resp.docs.map((doc) => ({id:doc.id, ...doc.data()}))
 
-            console.log(resp)
+            
 
             setProductos(productosDB)
 

@@ -1,11 +1,22 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useCartContext } from "../../Context/CartContext"
-import { addDoc,collection, doc, getDoc, updateDoc } from "firebase/firestore"
+import { addDoc,collection,  getDocs,writeBatch,query,where,documentId} from "firebase/firestore"
 import { db } from "../Firebase/config"
+import Swal from 'sweetalert2'
+
 import './Checkout.scss'
 
+
+
+
+
+
+
+
 const Checkout = ()=> {
+
+    
 
     const{cart,carTotal, terminarCompraConSwal} = useCartContext()
 
@@ -16,6 +27,7 @@ const Checkout = ()=> {
         nombre:'',
         email:'',
         direccion:'',
+        
     })
     
     const handleinputChange = (e) => {
@@ -28,7 +40,7 @@ const Checkout = ()=> {
     }
 
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault()
 
@@ -41,43 +53,57 @@ const Checkout = ()=> {
         
         
         if(values.nombre.length < 2){
-            alert("Nombre incorrecto")
+            Swal.fire('Nombre Incorrecto')
             return}
 
         if(values.email.length < 2) {
-            alert("email incorrecto")
+            Swal.fire('Email Incorrecto')
             return}
-
+         const batch = writeBatch(db)
          const oredenesRef = collection(db,'ordenes')
+         const productosRef = collection(db,'productos')
 
-         cart.forEach((item) => {
+         const q = query(productosRef,where(documentId(),'in',cart.map(item => item.id)))
 
-            const docRef = doc(db,'productos',item.id)
+         const productos = await getDocs(q)
 
-            getDoc(docRef)
-            .then((doc) => {
+         const outOfStock = []
 
-                if(doc.data().stock >= item.cantidad){
-                    updateDoc(docRef,{
+         productos.docs.forEach((doc) => {
+            const itemInCart = cart.find(item => item.id === doc.id)
 
-                        stock: doc.data().stock- item.cantidad
-                    })
-                    }else{
+            if(doc.data().stock >= itemInCart.cantidad){
 
-                        alert("No hay stock suficiente")
-                }
-                
-            })
+                batch.update(doc.ref, {
 
+                    stock:doc.data().stock - itemInCart.cantidad
+                })
+            }else{
+                outOfStock.push(itemInCart)
+            }
          })
 
-         addDoc(oredenesRef,orden)
+         if (outOfStock.length === 0){
+            batch.commit()
+            .then(() => {
+                addDoc(oredenesRef,orden)
          .then((doc) => {
 
-            console.log(doc.id)
+            
             setOrderId(doc.id)
-            terminarCompraConSwal()
+           terminarCompraConSwal()
          })
+
+            })
+         }else {
+            Swal.fire('Item sin stock')
+         }
+
+         
+
+         
+
+         
     }
 
     if(orderId){
@@ -86,6 +112,9 @@ const Checkout = ()=> {
             <div className="container my-5">
             <h2 className="com">Compra Exitosa</h2>
             <hr/>
+
+            
+            
 
             <p className="com">Tu numeo de orden es: <strong>{orderId}</strong> </p>
 
@@ -102,11 +131,18 @@ const Checkout = ()=> {
     
 
     return (
-        <div className="container my-5">
+        <div className="ultimo">
             <h2>Checkout</h2>
             <hr/>
-
-            <form onSubmit={handleSubmit}>
+             
+             <p className="end">Total de productos `{cart.length}`</p>
+             
+             <p className="end">COMPLETA ESTE FORMULARIO PARA TERMINAR CON TU COMPRA</p>
+             
+             <div className="contain">
+                
+            <form className="ancho" onSubmit={handleSubmit}>
+                <div>
                 <input 
                 name="nombre"
                 onChange={handleinputChange}
@@ -132,13 +168,37 @@ const Checkout = ()=> {
                  className="my-3 form-control" 
                  placeholder="Direccion"></input>
 
-                <button type="submit" className="btn btn-primary">Enviar</button>
-            </form>
+<button type="submit" className="btn btn-danger">Comprar</button>
 
+                </div>
+                
+                    
+                   
+            </form>
+            
+              <div className="asi">
+              <h4 className="totali">Total: ${carTotal()}</h4>
+            {cart.map((item) => (
+    
+    <div className="carr" key={item.id}>
+        <div className="el">
+        <h2 >{item.nombre}</h2>
+   <p>Precio:{item.precio}</p>
+   <p>Version:{item.version}</p>
+   <p>Cantidad:{item.cantidad}</p>
+   
 
         </div>
+        <img className="po" alt="" src={item.img}/>
+   <hr/>
+   
+</div>
 
-
+))}
+</div>
+    
+        </div>
+        </div>
     )
 
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import {doc,getDoc} from "firebase/firestore"
 import {db} from "../Firebase/config"
+import Louder from "../Louder/Louder"
 
 const ItemDetailContainer = () => {
 
@@ -41,7 +42,7 @@ const ItemDetailContainer = () => {
         <div>
             {
                 loading
-                ? <h2>Loading...</h2>
+                ? <Louder/>
                 : <ItemDetail item={item} />
             }
             

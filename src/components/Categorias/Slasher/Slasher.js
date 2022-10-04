@@ -1,42 +1,26 @@
-import { useEffect } from 'react'
+
 import './slasher.scss'
+import viernes from '../Slasher/Viernes.jpg'
+
 
 const Slasher = () => {
 
-    const handleClick = (e) => {
-
-        console.log(e)
-    }
-   
-    useEffect (() => {
-        window.addEventListener ('click',handleClick)
-
-        return () => {
-
-            window.removeEventListener('click',handleClick)
-        }
-
-
-    },[])
-
-
-
-
-
-
+    
 
 
     return(
      
+     
+        
+        <div className='sla'>
+        
+        
+        
+        
 
         
-        <div>
-        
-        
 
-        <h1 onClick={handleClick}>Slasher</h1>
-
-        <p className='sla'>Las películas slasher no son fáciles de definir. Sin embargo, poseen ciertas características comunes.2​El elemento principal es el asesino, que es guiado por el deseo de venganza hacia quienes le provocaron una tragedia o humillación. Estos generalmente son personas comunes y corrientes. Los villanos de estas películas realizan sus asesinatos de manera rápida, no buscan torturar a sus víctimas.3​ Las muertes son provocadas por varios tipos de armas, destacando elementos corto-punzantes como cuchillos, machetes, sierras eléctricas o hachas.4​ El asesino es, la mayoría de las veces, anónimo, debido a lo cual lleva su rostro cubierto o sufre algún tipo de desfiguración.5​ Otra de las características son las víctimas, generalmente adolescentes que se encuentran en lugares aislados de cualquier tipo de ayuda.6​
+        <p >Las películas slasher no son fáciles de definir. Sin embargo, poseen ciertas características comunes.2​El elemento principal es el asesino, que es guiado por el deseo de venganza hacia quienes le provocaron una tragedia o humillación. Estos generalmente son personas comunes y corrientes. Los villanos de estas películas realizan sus asesinatos de manera rápida, no buscan torturar a sus víctimas.3​ Las muertes son provocadas por varios tipos de armas, destacando elementos corto-punzantes como cuchillos, machetes, sierras eléctricas o hachas.4​ El asesino es, la mayoría de las veces, anónimo, debido a lo cual lleva su rostro cubierto o sufre algún tipo de desfiguración.5​ Otra de las características son las víctimas, generalmente adolescentes que se encuentran en lugares aislados de cualquier tipo de ayuda.6​
 
             <br></br>
 
@@ -53,10 +37,12 @@ El propósito de la chica final se ha convertido en un tema de estudio cultural 
 
 Con el pasar de los años, la definición de las películas slasher se hizo más difusa, expandiéndose a situaciones donde las víctimas no son necesariamente jóvenes ni se encuentran en un lugar aislado</p>
 
-
-   <div>
-   <img alt=''  ></img>
-   </div>
+   
+   <section>
+   <img className='si'
+   src={viernes}
+   alt=''  ></img>
+   </section>
 
         </div>
 

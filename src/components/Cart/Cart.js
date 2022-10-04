@@ -29,7 +29,7 @@ const Cart = () => {
     return(
          <div className="ses">
 
-             <h1 className="titi">CARRITO</h1>
+             
               <hr/>
 
              {cart.map((item) => (

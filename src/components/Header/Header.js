@@ -3,12 +3,12 @@ import './Header.scss'
 import { Link } from 'react-router-dom'
 import Carrito from '../CartWidget.js/Carrito'
 
-//import { useLoginContext } from '../../Context/LoginContext'
+
 
 
 export const Header = () => {
 
-//const {user,logout} = useLoginContext()
+
     return (
         <header className="bg-header">
             <div className="header-container">

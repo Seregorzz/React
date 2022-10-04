@@ -7,8 +7,8 @@ import Button from 'react-bootstrap/Button';
 
 
 
-const Contador = ({onAdd,max,counter,setCounter,handleAgregar}) => {
-   //let counter = 1
+const Contador = ({max,counter,setCounter,handleAgregar}) => {
+   
    
 
    

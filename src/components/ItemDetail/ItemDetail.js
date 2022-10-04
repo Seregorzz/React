@@ -17,9 +17,6 @@ import { CartContext } from '../../Context/CartContext';
 
 const ItemDetail = ({item}) => {
 
-  //////////
-  
-  
 
   const[version,setVersion] = useState (item.options[0].value)
         
@@ -27,7 +24,7 @@ const ItemDetail = ({item}) => {
         const{addToCart, isInCart}= useContext (CartContext)
         
 
-      //////////
+      
       const [cantidad,setCantidad] = useState(0)
 
       const handleAgregar = () => {
@@ -42,7 +39,7 @@ const ItemDetail = ({item}) => {
           cantidad
 
         } 
-        console.log(isInCart(item.id))
+        
         addToCart( itemtoCart )
         
       }

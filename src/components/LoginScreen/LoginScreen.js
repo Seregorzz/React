@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { LoginContext } from "../../Context/LoginContext"
+import './LoginScreen.scss'
 
 
 const LoginScreen = () => {
@@ -34,8 +35,8 @@ const LoginScreen = () => {
 
     return (
 
-        <div style={{backgroundcolor:'bisque'}}>
-            <form onSubmit={handleSubmit} className="container py-5">
+        <div className="login" style={{backgroundcolor:'bisque'}}>
+            <form  onSubmit={handleSubmit} className="container py-5">
                 <input type={'text'} className='form-control my-2' 
                 value={email}
                 onChange={handleEmailChange}/>

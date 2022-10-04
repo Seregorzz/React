@@ -8,6 +8,7 @@ import   Suspense  from '../components/Categorias/Suspense/Suspense';
 import Thriller from '../components/Categorias/Thriller/Thriller';
 import { Routes,Route,Navigate } from "react-router-dom"
 import Checkout from '../components/Checkout/Checkout';
+import Footer from '../components/Footer/Footer';
 
 
   const PrivateRoutes = () => {
@@ -31,6 +32,7 @@ import Checkout from '../components/Checkout/Checkout';
             
             <Route path='*' element={ <Navigate to="/"/>} />
           </Routes>
+          <Footer/>
           <div>
 
 <img alt=''></img>
